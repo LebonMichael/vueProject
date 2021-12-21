@@ -1,12 +1,12 @@
 <template>
   <div id="nav">
-    <router-link :to="{ name: 'TicketDetails', params: { id } }"
+    <router-link class="m-2" :to="{ name: 'TicketDetails', params: { id } }"
       >Details
     </router-link>
-    <router-link :to="{ name: 'TicketEdit', params: { id } }">
+    <router-link class="m-2" :to="{ name: 'TicketEdit', params: { id } }">
       Edit
     </router-link>
-    <router-link :to="{ name: 'TicketRegister', params: { id } }">
+    <router-link class="m-2" :to="{ name: 'TicketRegister', params: { id } }">
       Register
     </router-link>
     <router-view :event="event"></router-view>
@@ -33,6 +33,10 @@ export default {
       })
       .catch((error) => {
         console.log(error);
+        this.$router.push({
+          name: "404Resource",
+          params: { resource: "event" },
+        });
       });
   },
 };
